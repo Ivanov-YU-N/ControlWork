@@ -1,0 +1,26 @@
+5 История команд в терминале Ubuntu
+
+ubuntu@ubuntu-VirtualBox:~$ cat > Pets.txt
+ubuntu@ubuntu-VirtualBox:~$ cat > PackAnimals.txt
+ubuntu@ubuntu-VirtualBox:~$ cat Pets.txt PackAnimals.txt > comb.txt
+ubuntu@ubuntu-VirtualBox:~$ cat comb.txt
+ubuntu@ubuntu-VirtualBox:~$ mv comb.txt 'Human Friends.txt'
+ubuntu@ubuntu-VirtualBox:~$ ls
+ubuntu@ubuntu-VirtualBox:~$ mkdir NewDir
+ubuntu@ubuntu-VirtualBox:~$ mv 'Human Friends.txt' NewDir
+ubuntu@ubuntu-VirtualBox:~$ ls NewDir
+ubuntu@ubuntu-VirtualBox:~$sudo apt update
+ubuntu@ubuntu-VirtualBox:~$sudo apt upgrade
+ubuntu@ubuntu-VirtualBox:~$wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+ubuntu@ubuntu-VirtualBox:~$sudo dpkg -i mysql-apt-config*
+ubuntu@ubuntu-VirtualBox:~$sudo apt update
+ubuntu@ubuntu-VirtualBox:~$sudo apt install mysql-server
+ubuntu@ubuntu-VirtualBox:~$systemctl status mysql
+ubuntu@ubuntu-VirtualBox:~$ wget https://archive.ubuntu.com/ubuntu/pool/uneverse/m/mc-data_4.8.19-1_all.deb
+ubuntu@ubuntu-VirtualBox:~$ sudo apt -f install
+ubuntu@ubuntu-VirtualBox:~$ sudo dpkg -r mc
+ubuntu@ubuntu-VirtualBox:~$ mc
+
+
+
+
