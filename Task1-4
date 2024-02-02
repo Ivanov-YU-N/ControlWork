@@ -1,0 +1,89 @@
+Итоговая контрольная работа
+
+1 Использование команды cat в Linux
+ubuntu@ubuntu-VirtualBox:~$
+ubuntu@ubuntu-VirtualBox:~$
+ubuntu@ubuntu-VirtualBox:~$
+ubuntu@ubuntu-VirtualBox:~$ cat > Pets.txt
+        Figo    Dog
+        Buddy   Dog
+        Bella   Dog
+        Whiskers Dog
+        Smudge  Cat
+        Oliver  Cat
+        Hammy   Hamster
+        Peanut  Hamster
+
+ubuntu@ubuntu-VirtualBox:~$ cat > PackAnimals.txt
+        Thunder Horse
+        Storm   Horse
+        Blaze   Horse
+        Sandy   Camel
+        Dune    Camel
+        Sahara  Camel
+        Eeyore  Donkey
+        Burro   Donkey
+
+ubuntu@ubuntu-VirtualBox:~$ cat Pets.txt PackAnimals.txt > comb.txt
+ubuntu@ubuntu-VirtualBox:~$ cat comb.txt
+        Figo    Dog
+        Buddy   Dog
+        Bella   Dog
+        Whiskers Cat
+        Smudge  Cat
+        Oliver  Cat
+        Hammy   Hamster
+        Peanut  Hamster
+        Thunder Horse
+        Storm   Horse
+        Blaze   Horse
+        Sandy   Camel
+        Dune    Camel
+        Sahara  Camel
+        Eeyore  Donkey
+
+ubuntu@ubuntu-VirtualBox:~$ mv comb.txt 'Human Friends.txt'
+ubuntu@ubuntu-VirtualBox:~$ ls
+ Desktop    'Human Friends.txt'   Pets.txt   snap        Videos
+ Documents   Music                Pictures   Templates
+ Downloads   PackAnimals.txt      Public     test
+
+2 Работа с директориями в Linux
+- Создать новую директорию и переместить туда файл "Human Friends".
+ubuntu@ubuntu-VirtualBox:~$ mkdir NewDir
+ubuntu@ubuntu-VirtualBox:~$ mv 'Human Friends.txt' NewDir
+ubuntu@ubuntu-VirtualBox:~$ ls NewDir
+'Human Friends.txt'
+
+3 Работа с MySQL в Linux. “Установить MySQL на вашу вычислительную машину ”
+ubuntu@ubuntu-VirtualBox:~$sudo apt update
+ubuntu@ubuntu-VirtualBox:~$sudo apt upgrade
+ubuntu@ubuntu-VirtualBox:~$wget -c https://dev.mysql.com/get/mysql-apt-config_0.8.15-1_all.deb
+ubuntu@ubuntu-VirtualBox:~$sudo dpkg -i mysql-apt-config*
+ubuntu@ubuntu-VirtualBox:~$sudo apt update
+ubuntu@ubuntu-VirtualBox:~$sudo apt install mysql-server
+ubuntu@ubuntu-VirtualBox:~$systemctl status mysql
+
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+     Active: active (running) since Sat 2024-01-27 10:43:55 +05; 3min 26s ago
+    Process: 36476 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 36484 (mysqld)
+     Status: "Server is operational"
+      Tasks: 37 (limit: 9429)
+     Memory: 365.4M
+        CPU: 4.835s
+     CGroup: /system.slice/mysql.service
+             └─36484 /usr/sbin/mysqld
+
+янв 27 10:43:54 ubuntu-VirtualBox systemd[1]: Starting MySQL Community Server...
+янв 27 10:43:55 ubuntu-VirtualBox systemd[1]: Started MySQL Community Server.
+
+4 Управление deb-пакетами
+- Установить и затем удалить deb-пакет, используя команду `dpkg`.
+
+ubuntu@ubuntu-VirtualBox:~$ wget https://archive.ubuntu.com/ubuntu/pool/uneverse/m/mc-data_4.8.19-1_all.deb
+ubuntu@ubuntu-VirtualBox:~$ sudo apt -f install
+ubuntu@ubuntu-VirtualBox:~$ sudo dpkg -r mc
+ubuntu@ubuntu-VirtualBox:~$ mc
+-bash: /usr/bin/mc: No such file or directory
