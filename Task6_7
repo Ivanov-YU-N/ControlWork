@@ -1,0 +1,96 @@
+mysql> CREATE TABLE `Pets`(     `id` INT AUTO_INCREMENT PRIMARY KEY,     `name` VARCHAR(50) NOT NULL,     `type` VARCHAR(50) NOT NULL,      `birthdate` DATE NOT NULL,      `commands` VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> CREATE TABLE `PackAnimals`(     `id` INT AUTO_INCREMENT PRIMARY KEY,     `name` VARCHAR(50) NOT NULL,     `type` VARCHAR(50) NOT NULL,      `birthdate` DATE NOT NULL,	     `commands` VARCHAR(50) NOT NULL);
+Query OK, 0 rows affected (0,07 sec)
+
+mysql> SHOW TABLES;
++------------------------+
+| Tables_in_HumanFriends |
++------------------------+
+| PackAnimals            |
+| Pets                   |
++------------------------+
+2 rows in set (0,00 sec)
+
+mysql> INSERT INTO PackAnimals(name, type, birthdate, commands)
+    -> VALUES('Fido', 'horse', '2020-01-01', 'sit, stay,fatch'),
+    ->   ('Boddy', 'horse', '2019-01-01', 'sit, stay,fatch'),
+    ->   ('Black', 'horse', '2018-01-01', 'sit, stay,fatch'),
+    ->   ('Whiskers', 'camel', '2022-01-01', 'sit, stay,fatch'),
+    ->   ('Smudge', 'camal', '2024-01-01', 'sit, stay,fatch'),
+    ->   ('Moliver', 'camel', '2015-01-01', 'sit, stay,fatch'),
+    ->   ('Hammy', 'donkey', '2013-01-01', 'sit, stay,fatch'),
+    ->   ('Peanta', 'donkey', '2018-01-01', 'sit, stay,fatch');
+Query OK, 8 rows affected (0,01 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> select * from PackAnimals;
++----+----------+--------+------------+-----------------+
+| id | name     | type   | birthdate  | commands        |
++----+----------+--------+------------+-----------------+
+|  1 | Fido     | horse  | 2020-01-01 | sit, stay,fatch |
+|  2 | Boddy    | horse  | 2019-01-01 | sit, stay,fatch |
+|  3 | Black    | horse  | 2018-01-01 | sit, stay,fatch |
+|  4 | Whiskers | camel  | 2022-01-01 | sit, stay,fatch |
+|  5 | Smudge   | camal  | 2024-01-01 | sit, stay,fatch |
+|  6 | Moliver  | camel  | 2015-01-01 | sit, stay,fatch |
+|  7 | Hammy    | donkey | 2013-01-01 | sit, stay,fatch |
+|  8 | Peanta   | donkey | 2018-01-01 | sit, stay,fatch |
++----+----------+--------+------------+-----------------+
+8 rows in set (0,00 sec)
+
+mysql> INSERT INTO Pets(name, type, birthdate, commands)
+    -> VALUES('Fido', 'dog', '2020-01-01', 'sit, stay,fatch'),
+    ->   ('Buddy', 'dog', '2019-01-01', 'sit, stay,fatch'),
+    ->   ('Bella', 'dog', '2018-01-01', 'sit, stay,fatch'),
+    ->   ('Whiskers', 'cat', '2022-01-01', 'sit, stay,fatch'),
+    ->   ('Smudge', 'cat', '2024-01-01', 'sit, stay,fatch'),
+    ->   ('Oliver', 'cat', '2015-01-01', 'sit, stay,fatch'),
+    ->   ('Hammy', 'hamster', '2013-01-01', 'sit, stay,fatch'),
+    ->   ('Peanut', 'hamster', '2018-02-01', 'sit, stay,fatch');
+Query OK, 8 rows affected (0,02 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
+mysql> select * from Pets;
++----+----------+---------+------------+-----------------+
+| id | name     | type    | birthdate  | commands        |
++----+----------+---------+------------+-----------------+
+|  1 | Fido     | dog     | 2020-01-01 | sit, stay,fatch |
+|  2 | Buddy    | dog     | 2019-01-01 | sit, stay,fatch |
+|  3 | Bella    | dog     | 2018-01-01 | sit, stay,fatch |
+|  4 | Whiskers | cat     | 2022-01-01 | sit, stay,fatch |
+|  5 | Smudge   | cat     | 2024-01-01 | sit, stay,fatch |
+|  6 | Oliver   | cat     | 2015-01-01 | sit, stay,fatch |
+|  7 | Hammy    | hamster | 2013-01-01 | sit, stay,fatch |
+|  8 | Peanut   | hamster | 2018-02-01 | sit, stay,fatch |
++----+----------+---------+------------+-----------------+
+8 rows in set (0,00 sec)
+
+
+mysql> SELECT * FROM Pets
+    -> UNION ALL
+    -> SELECT * FROM PackAnimals;
++----+----------+---------+------------+-----------------+
+| id | name     | type    | birthdate  | commands        |
++----+----------+---------+------------+-----------------+
+|  1 | Fido     | dog     | 2020-01-01 | sit, stay,fatch |
+|  2 | Buddy    | dog     | 2019-01-01 | sit, stay,fatch |
+|  3 | Bella    | dog     | 2018-01-01 | sit, stay,fatch |
+|  4 | Whiskers | cat     | 2022-01-01 | sit, stay,fatch |
+|  5 | Smudge   | cat     | 2024-01-01 | sit, stay,fatch |
+|  6 | Oliver   | cat     | 2015-01-01 | sit, stay,fatch |
+|  7 | Hammy    | hamster | 2013-01-01 | sit, stay,fatch |
+|  8 | Peanut   | hamster | 2018-02-01 | sit, stay,fatch |
+|  1 | Fido     | horse   | 2020-01-01 | sit, stay,fatch |
+|  2 | Boddy    | horse   | 2019-01-01 | sit, stay,fatch |
+|  3 | Black    | horse   | 2018-01-01 | sit, stay,fatch |
+|  4 | Whiskers | camel   | 2022-01-01 | sit, stay,fatch |
+|  5 | Smudge   | camal   | 2024-01-01 | sit, stay,fatch |
+|  6 | Moliver  | camel   | 2015-01-01 | sit, stay,fatch |
+|  7 | Hammy    | donkey  | 2013-01-01 | sit, stay,fatch |
+|  8 | Peanta   | donkey  | 2018-01-01 | sit, stay,fatch |
++----+----------+---------+------------+-----------------+
+16 rows in set (0,00 sec)
+
+
